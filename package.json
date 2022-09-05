@@ -1,7 +1,7 @@
 {
-  "name": "@fireboltcasters/<packageName>",
+  "name": "react-native-nfc-manager-sw-os",
   "version": "0.0.1",
-  "description": "<packageDescription>",
+  "description": "An nfc helper package for card reading of the Studentenwerk Osnabrück",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -26,19 +26,17 @@
     "url": "git+https://github.com/FireboltCasters/npm-template.git"
   },
   "keywords": [
-    "npm-template"
+    "nfc",
+    "card",
+    "react-native",
+    "osnabrück"
   ],
-  "author": "Steffen Droppelmann",
+  "author": "Nils Baumgartner",
   "contributors": [
     {
       "name": "Nils Baumgartner",
       "email": "nilsbaumgartner1994@gmail.com",
-      "url": "https://github.com/FireboltCasters"
-    },
-    {
-      "name": "Steffen Droppelmann",
-      "email": "steffen.droppelmann@gmail.com",
-      "url": "https://github.com/FireboltCasters"
+      "url": "https://github.com/NilsBaumgartner1994"
     }
   ],
   "license": "MIT",
