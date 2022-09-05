@@ -1,4 +1,7 @@
 /* istanbul ignore file */
-import Example from './Example';
 
+import CardReader from "./ignoreCoverage/CardReader";
+export {CardReader};
+
+import Example from './Example';
 export {Example};
