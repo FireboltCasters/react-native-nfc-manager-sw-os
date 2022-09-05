@@ -124,7 +124,7 @@ export default class MensaCardReaderHelper {
    * function for Requesting the Permission to use the Technology
    * @returns {Promise<NfcTech|*|undefined>}
    */
-  static async private_requestTechnology(cardReader) {
+  static async private_requestTechnology(cardReader: CardReader) {
     try {
       let resp = await cardReader.NfcManager.requestTechnology(
         MensaCardReaderHelper.private_getTechnology(cardReader),
@@ -145,7 +145,7 @@ export default class MensaCardReaderHelper {
    * @param command the APDU Command
    * @returns {Promise<number[]|undefined>}
    */
-  static async private_sendCommandToMensaCard(cardReader: CardReader, command) {
+  static async private_sendCommandToMensaCard(cardReader: CardReader, command: any) {
     try {
       if (cardReader.Platform.OS === 'ios') {
         return await cardReader.NfcManager.sendMifareCommandIOS(command);
@@ -163,7 +163,7 @@ export default class MensaCardReaderHelper {
    * @param resp response of the card
    * @returns {boolean|boolean}
    */
-  static private_isValidResponse(resp) {
+  static private_isValidResponse(resp: any) {
     if (resp) {
       return resp.length >= 2 && resp[resp.length - 2] === 145;
     }
@@ -175,7 +175,7 @@ export default class MensaCardReaderHelper {
    * @param x
    * @returns {number}
    */
-  static getValueFromBytes(x) {
+  static getValueFromBytes(x: any) {
     let val = 0;
     for (let i = 0; i < x.length; ++i) {
       val += x[i];
