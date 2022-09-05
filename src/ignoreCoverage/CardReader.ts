@@ -29,7 +29,11 @@ export default class CardReader {
     let cardInformations;
     try {
       const result = await this.NfcManager.start();
-      cardInformations = await MensaCardReaderHelper.readMensaCardInformations(this.NfcManager, this.NfcTech, this.Platform);
+      cardInformations = await MensaCardReaderHelper.readMensaCardInformations(
+        this.NfcManager,
+        this.NfcTech,
+        this.Platform
+      );
     } catch (err) {
       console.warn(err);
     }
