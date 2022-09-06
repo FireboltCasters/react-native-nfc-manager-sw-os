@@ -22,7 +22,9 @@ export default class MensaCardReaderHelper {
   /**
    * read the balance and the last Transaction from the Mensacard
    */
-  private static async private_getMensaCardInformations(cardReader: CardReader): Promise<CardResponse | undefined> {
+  private static async private_getMensaCardInformations(
+    cardReader: CardReader
+  ): Promise<CardResponse | undefined> {
     //request Mifare Technology
     console.log('MiFare Technology: ');
     const respTech = await MensaCardReaderHelper.private_requestTechnology(
@@ -91,13 +93,13 @@ export default class MensaCardReaderHelper {
     console.log(JSON.stringify(currentBalanceResponse, null, 2));
 
     //if the response is Valid the lastTransaction APDU command is send
-    if (MensaCardReaderHelper.private_isValidResponse(currentBalanceResponse)){
+    if (MensaCardReaderHelper.private_isValidResponse(currentBalanceResponse)) {
       const currentBalance = MensaCardReaderHelper.getValueFromBytes(
         currentBalanceResponse.slice(0, 4).reverse()
       ).toString();
       return {
         currentBalance: currentBalance,
-        currentBalanceRaw: currentBalanceResponse
+        currentBalanceRaw: currentBalanceResponse,
       };
     } else {
       return undefined;
@@ -122,7 +124,7 @@ export default class MensaCardReaderHelper {
       ).toString();
       return {
         lastTransaction: lastTransaction,
-        lastTransactionRaw: lastTransactionResponse
+        lastTransactionRaw: lastTransactionResponse,
       };
     } else {
       return undefined;
