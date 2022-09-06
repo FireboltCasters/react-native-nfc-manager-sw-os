@@ -164,14 +164,10 @@ export default class MensaCardReaderHelper {
    * @param command the APDU Command
    * @returns {Promise<number[]|undefined>}
    */
-<<<<<<< Updated upstream
   static async private_sendCommandToMensaCard(
     cardReader: CardReader,
     command: any
   ) {
-=======
-  private static async private_sendCommandToMensaCard(cardReader: CardReader, command: any) {
->>>>>>> Stashed changes
     try {
       if (cardReader.Platform.OS === 'ios') {
         return await cardReader.NfcManager.sendMifareCommandIOS(command);
