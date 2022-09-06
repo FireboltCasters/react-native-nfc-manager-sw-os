@@ -6,11 +6,15 @@ import CardResponse from './CardResponse';
  * MensaCardReaderHelper for easy reading of the mensacard
  */
 export default class MensaCardReaderHelper {
-  static async readMensaCardInformations(cardReader: CardReader) {
+  static async readMensaCardInformations(
+    cardReader: CardReader,
+    message: string
+  ) {
     let answer;
     try {
       answer = await MensaCardReaderHelper.private_getMensaCardInformations(
-        cardReader
+        cardReader,
+        message
       );
     } catch (err) {
       console.warn(err);
@@ -23,12 +27,14 @@ export default class MensaCardReaderHelper {
    * read the balance and the last Transaction from the Mensacard
    */
   private static async private_getMensaCardInformations(
-    cardReader: CardReader
+    cardReader: CardReader,
+    message: string
   ): Promise<CardResponse | undefined> {
     //request Mifare Technology
     console.log('MiFare Technology: ');
     const respTech = await MensaCardReaderHelper.private_requestTechnology(
-      cardReader
+      cardReader,
+      message
     );
     console.log(JSON.stringify(respTech, null, 2));
     if (!respTech) {
@@ -145,12 +151,15 @@ export default class MensaCardReaderHelper {
    * function for Requesting the Permission to use the Technology
    * @returns {Promise<NfcTech|*|undefined>}
    */
-  private static async private_requestTechnology(cardReader: CardReader) {
+  private static async private_requestTechnology(
+    cardReader: CardReader,
+    message: string
+  ) {
     try {
       const resp = await cardReader.NfcManager.requestTechnology(
         MensaCardReaderHelper.private_getTechnology(cardReader),
         {
-          alertMessage: 'Place your phone on the card',
+          alertMessage: message,
         }
       );
       return resp;

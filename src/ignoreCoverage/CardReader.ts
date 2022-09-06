@@ -11,24 +11,36 @@ export default class CardReader {
     this.Platform = Platform;
   }
 
-  async isSupported() {
-    return await this.NfcManager.isSupported();
+  async isSupported(): Promise<boolean> {
+    if(this.Platform.OS === 'ios' || this.Platform.OS === 'android') {
+      return await this.NfcManager.isSupported();
+    } else {
+      return false;
+    }
   }
 
-  async isEnabled() {
-    return await this.NfcManager.isEnabled();
+  async isEnabled(): Promise<boolean> {
+    if(this.Platform.OS === 'ios' || this.Platform.OS === 'android') {
+      return await this.NfcManager.isEnabled();
+    } else {
+      return false;
+    }
   }
 
   isApple() {
     return this.Platform.OS === 'ios';
   }
 
-  async readCard() {
+  async readCard(message?: string) {
+    if (message === undefined) {
+      message = 'Hold your phone near the card';
+    }
     let cardInformations;
     try {
       const result = await this.NfcManager.start();
       cardInformations = await MensaCardReaderHelper.readMensaCardInformations(
-        this
+        this,
+        message
       );
     } catch (err) {
       console.warn(err);
