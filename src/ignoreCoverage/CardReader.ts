@@ -1,5 +1,3 @@
-//APDU Commands for reading Balance of the Card
-
 import MensaCardReaderHelper from './MensaCardReaderHelper';
 
 export default class CardReader {

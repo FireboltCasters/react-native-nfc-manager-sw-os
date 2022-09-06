@@ -45,6 +45,7 @@
   },
   "homepage": "https://github.com/FireboltCasters/npm-template#readme",
   "devDependencies": {
+    "react-native-nfc-manager": "^3.13.5",
     "@types/jest": "^26.0.23",
     "@types/node": "^16.0.0",
     "gts": "^3.1.0",
