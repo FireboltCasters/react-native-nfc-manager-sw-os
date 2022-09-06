@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 import MensaCardReaderHelper from './ignoreCoverage/MensaCardReaderHelper';
-export {MensaCardReaderHelper}
+export {MensaCardReaderHelper};
 
 import CardResponse from './ignoreCoverage/CardResponse';
 export {CardResponse};
