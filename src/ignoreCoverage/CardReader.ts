@@ -12,7 +12,7 @@ export default class CardReader {
   }
 
   async isSupported(): Promise<boolean> {
-    if(this.Platform.OS === 'ios' || this.Platform.OS === 'android') {
+    if (this.Platform.OS === 'ios' || this.Platform.OS === 'android') {
       return await this.NfcManager.isSupported();
     } else {
       return false;
@@ -20,7 +20,7 @@ export default class CardReader {
   }
 
   async isEnabled(): Promise<boolean> {
-    if(this.Platform.OS === 'ios' || this.Platform.OS === 'android') {
+    if (this.Platform.OS === 'ios' || this.Platform.OS === 'android') {
       return await this.NfcManager.isEnabled();
     } else {
       return false;
